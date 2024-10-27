@@ -1,0 +1,132 @@
+// Variables
+$font-size-large: 3rem;
+$white-color: #ffffff;
+$green-tint: #e8f5e9;
+$dark-green-tint: #1a1a1a;
+$black-color: #000000;
+
+// Import a beautiful Google Font (optional for better appearance)
+//@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
+
+// Base Styles
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  //font-family:'Roboto Slab', serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+    //position: static;
+    background: 
+      linear-gradient(to bottom right, rgba($white-color, 0.85), rgba($green-tint, 0.85)), // Adjust opacity of gradient colors
+      url('./bg.png') no-repeat center center;
+    background-size: cover;
+    transition: background 0.3s;
+    color: $black-color;
+  }
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  font-size: $font-size-large;
+  font-weight: bold;
+}
+
+// Dark Theme
+body.dark-theme {
+  background:
+    linear-gradient(to bottom right, rgba($black-color, 0.9), rgba($dark-green-tint,0.9)),
+    url('./bg.png') no-repeat center center;
+  background-size: cover;
+  //transition: background 0.3s;
+  color: $white-color;
+}
+
+// Dark Mode Toggle
+.toggle-theme {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 3rem;
+    height: 1.5rem;
+    background-color: $black-color;
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    padding: 0 0.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+    .icon {
+      font-size: 1rem;
+      color: $black-color;
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      //background-color: $white-color;
+      transition: transform 0.4s ease, background-color 0.3s ease;
+    }
+  
+    &.dark {
+      background-color: $white-color;
+  
+      .icon {
+        transform: translateX(1.5rem);  // Move to the right for dark mode
+        //background-color: $black-color;
+        color: $white-color;
+      }
+    }
+  }  
+  
+// Responsive Typography
+h1 {
+    font-size: 6rem;
+    font-weight: 700;
+    //font-family: 'Playfair Display', serif;
+    font-family: inherit;
+    letter-spacing: 0.05em;
+    color: inherit;
+    text-transform: uppercase;
+    transition: font-size 0.3s ease;
+  }
+  
+  // Responsive Typography for different screen sizes
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 4rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 3rem;
+    }
+  }
+
+.footer {
+position: absolute;
+bottom: 1rem;
+width: 100%;
+text-align: center;
+font-size: 0.9rem;
+color: inherit; // Adapts to light or dark theme color
+opacity: 0.7; // Slightly transparent for subtle appearance
+}
