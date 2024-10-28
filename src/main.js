@@ -10,5 +10,9 @@ function toggleTheme() {
 }
 
 // Initial icon setup with wrapper
+//Set default theme as dark
+//document.body.classList.toggle('dark-theme');
+//document.querySelector('.toggle-theme').classList.toggle('dark');
+//document.querySelector('.toggle-theme').innerHTML = '<span class="icon">☀️</span>';
 document.querySelector('.toggle-theme').innerHTML = '<span class="icon">🌙</span>';
 document.querySelector('.toggle-theme').onclick = toggleTheme;

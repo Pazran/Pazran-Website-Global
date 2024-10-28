@@ -4,6 +4,7 @@ $white-color: #ffffff;
 $green-tint: #e8f5e9;
 $dark-green-tint: #1a1a1a;
 $black-color: #000000;
+$grey-color: #505050;
 
 // Import a beautiful Google Font (optional for better appearance)
 //@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
@@ -31,8 +32,8 @@ body {
 body {
     //position: static;
     background: 
-      linear-gradient(to bottom right, rgba($white-color, 0.85), rgba($green-tint, 0.85)), // Adjust opacity of gradient colors
-      url('./bg.png') no-repeat center center;
+      linear-gradient(to bottom right, rgba($white-color, 0.5), rgba($green-tint, 0.85)), // Adjust opacity of gradient colors
+      url('./bg.jpg') no-repeat center center;
     background-size: cover;
     transition: background 0.3s;
     color: $black-color;
@@ -51,7 +52,7 @@ h1 {
 body.dark-theme {
   background:
     linear-gradient(to bottom right, rgba($black-color, 0.9), rgba($dark-green-tint,0.9)),
-    url('./bg.png') no-repeat center center;
+    url('./bg.jpg') no-repeat center center;
   background-size: cover;
   //transition: background 0.3s;
   color: $white-color;
@@ -60,11 +61,12 @@ body.dark-theme {
 // Dark Mode Toggle
 .toggle-theme {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 1.5rem;
+    right: 1.5rem;
     width: 3rem;
     height: 1.5rem;
-    background-color: $black-color;
+    //background-color: $grey-color;
+    background: linear-gradient(to bottom right, rgba($black-color, 0.85), rgba($grey-color, 0.85));
     border-radius: 1.5rem;
     display: flex;
     align-items: center;
@@ -86,7 +88,8 @@ body.dark-theme {
     }
   
     &.dark {
-      background-color: $white-color;
+      //background-color: $grey-color;
+      background: linear-gradient(to bottom right, rgba($white-color, 0.5), rgba($grey-color, 0.85));
   
       .icon {
         transform: translateX(1.5rem);  // Move to the right for dark mode
@@ -120,6 +123,45 @@ h1 {
       font-size: 3rem;
     }
   }
+
+.logo {
+  max-width: 100px; // Adjust the logo size as needed
+  margin-bottom: 0.1rem; // Space between logo and heading
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*
+.description {
+  font-size: 1.2rem; // Adjust font size as needed
+  margin-top: 1rem; // Space between heading and paragraph
+  color: inherit; // Use current theme color
+  opacity: 0.8; // Slightly lighter for subtle look
+  text-align: center;
+  max-width: 800px;
+  line-height: 1.5;
+}*/
+
+.description {
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: inherit;
+  letter-spacing: 0.02em;
+  color: inherit;
+  text-align: center;
+  max-width: 800px;
+  line-height: 1.5;
+  transition: font-size 0.3s ease;
+
+  // Responsive Typography for different screen sizes
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.6rem;
+  }
+}
 
 .footer {
 position: absolute;
