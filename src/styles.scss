@@ -148,6 +148,7 @@ h1 {
   font-family: inherit;
   letter-spacing: 0.02em;
   color: inherit;
+  opacity: 0.8;
   text-align: center;
   max-width: 800px;
   line-height: 1.5;
@@ -155,11 +156,11 @@ h1 {
 
   // Responsive Typography for different screen sizes
   @media (max-width: 768px) {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 
   @media (max-width: 480px) {
-    font-size: 0.6rem;
+    font-size: 0.9rem;
   }
 }
 
