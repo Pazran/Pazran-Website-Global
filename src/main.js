@@ -1,18 +1,28 @@
 import './styles.scss';
 
-function toggleTheme() {
-  document.body.classList.toggle('dark-theme');
-  const toggleButton = document.querySelector('.toggle-theme');
-  toggleButton.classList.toggle('dark'); // Toggle the "dark" class for styling
+document.addEventListener('DOMContentLoaded', () => {
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 
-  // Switch between sun and moon icons inside the icon container
-  toggleButton.querySelector('.icon').innerHTML = toggleButton.classList.contains('dark') ? '☀️' : '🌙';
-}
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// Initial icon setup with wrapper
-//Set default theme as dark
-//document.body.classList.toggle('dark-theme');
-//document.querySelector('.toggle-theme').classList.toggle('dark');
-//document.querySelector('.toggle-theme').innerHTML = '<span class="icon">☀️</span>';
-document.querySelector('.toggle-theme').innerHTML = '<span class="icon">🌙</span>';
-document.querySelector('.toggle-theme').onclick = toggleTheme;
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      const target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        const targetPos = target.getBoundingClientRect().top + window.scrollY - 64;
+        window.scrollTo({ top: targetPos, behavior: 'smooth' });
+      }
+    });
+  });
+});

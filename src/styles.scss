@@ -1,175 +1,429 @@
-// Variables
-$font-size-large: 3rem;
-$white-color: #ffffff;
-$green-tint: #e8f5e9;
-$dark-green-tint: #1a1a1a;
-$black-color: #000000;
-$grey-color: #505050;
-
-// Import a beautiful Google Font (optional for better appearance)
-//@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
-
-// Base Styles
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* ============================================================
+   Design Tokens
+   ============================================================ */
+:root {
+  --black: #03050a;
+  --gray-950: #080b14;
+  --gray-900: #0c0f1c;
+  --gray-800: #141829;
+  --gray-700: #1d2238;
+  --gray-600: #303654;
+  --gray-500: #4a5177;
+  --gray-400: #737b9e;
+  --gray-300: #9da5c4;
+  --gray-200: #c8cde0;
+  --cyan-600: #0ea5e9;
+  --cyan-500: #38bdf8;
+  --cyan-400: #7dd3fc;
+  --cyan-300: #aee2ff;
+  --teal-600: #14b8a6;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
-html,
+/* ============================================================
+   Reset
+   ============================================================ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+::selection { background: var(--cyan-600); color: white; }
+
 body {
-  height: 100%;
-  font-family: Arial, sans-serif;
-  //font-family:'Roboto Slab', serif;
+  font-family: var(--font-sans);
+  background: var(--black);
+  color: var(--gray-300);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; transition: color 0.2s; }
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 60% 20%, rgba(14, 165, 233, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 30% 70%, rgba(20, 184, 166, 0.03) 0%, transparent 50%),
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px) 0 0 / 48px 48px,
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px) 0 0 / 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 35%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 35%, transparent 70%);
+}
+
+.corner {
+  position: fixed;
+  top: 1.5rem;
+  right: 2rem;
+  z-index: 10;
+}
+
+.corner a {
+  font-size: 0.8rem;
+  color: var(--gray-500);
+  font-family: var(--font-mono);
+}
+
+.corner a:hover { color: var(--cyan-400); }
+
+.hero-inner {
+  max-width: 520px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-logo {
+  margin: 0 auto 1.5rem;
+  display: block;
+  filter: drop-shadow(0 0 20px rgba(14, 165, 233, 0.08));
+}
+
+.hero h1 {
+  font-size: clamp(3.2rem, 7vw, 5rem);
+  font-weight: 800;
+  color: white;
+  letter-spacing: -2px;
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+
+.hero-blurb {
+  font-size: 1rem;
+  color: var(--gray-400);
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.hero-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.hero-links a {
+  padding: 0.35rem 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--gray-400);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+}
+
+.hero-links a:hover {
+  color: white;
+  background: rgba(255,255,255,0.04);
+}
+
+.sep { color: var(--gray-600); font-size: 0.8rem; }
+
+/* ============================================================
+   Product Section (SovereignSearch)
+   ============================================================ */
+.product-section {
+  padding: 2rem 2rem 4rem;
+}
+
+.product-card {
+  max-width: 560px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(14, 165, 233, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2.2rem;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.product-card:hover {
+  border-color: rgba(14, 165, 233, 0.15);
+  background: rgba(14, 165, 233, 0.015);
+}
+
+.product-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--cyan-400);
+  background: rgba(14, 165, 233, 0.06);
+  border: 1px solid rgba(14, 165, 233, 0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+  margin-bottom: 0.8rem;
+}
+
+.product-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.6rem;
+}
+
+.product-desc {
+  font-size: 0.9rem;
+  color: var(--gray-400);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.product-stats {
+  display: flex;
+  gap: 0;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  padding-bottom: 1.2rem;
+}
+
+.product-stat {
+  flex: 1;
+  text-align: center;
+}
+
+.product-stat + .product-stat {
+  border-left: 1px solid rgba(255,255,255,0.04);
+}
+
+.product-stat-val {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--cyan-400), var(--teal-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.product-stat-lbl {
+  font-size: 0.72rem;
+  color: var(--gray-500);
+}
+
+.product-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 1.3rem;
+}
+
+.product-tech span {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--gray-400);
+  padding: 0.2rem 0.5rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 4px;
+}
+
+.product-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.4rem;
+  background: linear-gradient(135deg, var(--cyan-600), #0c7bb8);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 2px 16px rgba(14, 165, 233, 0.2);
+  transition: all 0.25s cubic-bezier(.16,1,.3,1);
+}
+
+.product-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(14, 165, 233, 0.35);
+}
+
+/* ============================================================
+   Projects
+   ============================================================ */
+.projects {
+  padding: 2rem 2rem 5rem;
+}
+
+.projects-inner {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.section-marker {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.marker-line {
+  flex: 1;
+  height: 0;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  max-width: 40px;
+}
+
+.project {
+  display: flex;
+  gap: 1rem;
+  padding: 1.1rem 0;
+}
+
+.project + .project {
+  border-top: 1px solid rgba(255,255,255,0.03);
+}
+
+.project-side {
+  flex-shrink: 0;
+  width: 32px;
+  padding-top: 2px;
+}
+
+.project-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+  opacity: 0.6;
+}
+
+.project-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.project-name {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--gray-200);
+  display: inline-block;
+  margin-bottom: 0.2rem;
+  transition: all 0.2s;
+}
+
+.project-name:hover {
+  color: var(--cyan-400);
+}
+
+.project-desc {
+  font-size: 0.82rem;
+  color: var(--gray-400);
+  line-height: 1.6;
+  margin-bottom: 0.4rem;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.project-tech span {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: var(--gray-500);
+  padding: 0.1rem 0.4rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 3px;
+}
+
+.projects-footer {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.projects-footer a {
+  font-size: 0.82rem;
+  color: var(--gray-500);
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+}
+
+.projects-footer a:hover {
+  color: var(--cyan-400);
+  background: rgba(14, 165, 233, 0.04);
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+footer {
+  padding: 2.5rem 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 2rem;
+  font-size: 0.8rem;
+  color: var(--gray-600);
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(255,255,255,0.03);
 }
 
-body {
-    //position: static;
-    background: 
-      linear-gradient(to bottom right, rgba($white-color, 0.5), rgba($green-tint, 0.85)), // Adjust opacity of gradient colors
-      url('./bg.jpg') no-repeat center center;
-    background-size: cover;
-    transition: background 0.3s;
-    color: $black-color;
-  }
-
-.container {
-  text-align: center;
+.footer-links {
+  display: flex;
+  gap: 1.2rem;
 }
 
-h1 {
-  font-size: $font-size-large;
-  font-weight: bold;
+.footer-links a {
+  color: var(--gray-600);
+  transition: color 0.2s;
 }
 
-// Dark Theme
-body.dark-theme {
-  background:
-    linear-gradient(to bottom right, rgba($black-color, 0.9), rgba($dark-green-tint,0.9)),
-    url('./bg.jpg') no-repeat center center;
-  background-size: cover;
-  //transition: background 0.3s;
-  color: $white-color;
-}
+.footer-links a:hover { color: var(--gray-300); }
 
-// Dark Mode Toggle
-.toggle-theme {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    width: 3rem;
-    height: 1.5rem;
-    //background-color: $grey-color;
-    background: linear-gradient(to bottom right, rgba($black-color, 0.85), rgba($grey-color, 0.85));
-    border-radius: 1.5rem;
-    display: flex;
-    align-items: center;
-    padding: 0 0.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  
-    .icon {
-      font-size: 1rem;
-      color: $black-color;
-      width: 1.2rem;
-      height: 1.2rem;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      //background-color: $white-color;
-      transition: transform 0.4s ease, background-color 0.3s ease;
-    }
-  
-    &.dark {
-      //background-color: $grey-color;
-      background: linear-gradient(to bottom right, rgba($white-color, 0.5), rgba($grey-color, 0.85));
-  
-      .icon {
-        transform: translateX(1.5rem);  // Move to the right for dark mode
-        //background-color: $black-color;
-        color: $white-color;
-      }
-    }
-  }  
-  
-// Responsive Typography
-h1 {
-    font-size: 6rem;
-    font-weight: 700;
-    //font-family: 'Playfair Display', serif;
-    font-family: inherit;
-    letter-spacing: 0.05em;
-    color: inherit;
-    text-transform: uppercase;
-    transition: font-size 0.3s ease;
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 600px) {
+  .corner {
+    position: static;
+    text-align: center;
+    margin-bottom: 0.5rem;
   }
-  
-  // Responsive Typography for different screen sizes
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 4rem;
-    }
+  .project {
+    flex-direction: column;
+    gap: 0.4rem;
   }
-  
-  @media (max-width: 480px) {
-    h1 {
-      font-size: 3rem;
-    }
+  .project-side {
+    width: auto;
   }
-
-.logo {
-  max-width: 100px; // Adjust the logo size as needed
-  margin-bottom: 0.1rem; // Space between logo and heading
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-/*
-.description {
-  font-size: 1.2rem; // Adjust font size as needed
-  margin-top: 1rem; // Space between heading and paragraph
-  color: inherit; // Use current theme color
-  opacity: 0.8; // Slightly lighter for subtle look
-  text-align: center;
-  max-width: 800px;
-  line-height: 1.5;
-}*/
-
-.description {
-  font-size: 1rem;
-  font-weight: 400;
-  font-family: inherit;
-  letter-spacing: 0.02em;
-  color: inherit;
-  opacity: 0.8;
-  text-align: center;
-  max-width: 800px;
-  line-height: 1.5;
-  transition: font-size 0.3s ease;
-
-  // Responsive Typography for different screen sizes
-  @media (max-width: 768px) {
-    font-size: 1rem;
+  .product-stats {
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
-
-  @media (max-width: 480px) {
-    font-size: 0.9rem;
+  .product-stat {
+    min-width: 80px;
   }
-}
-
-.footer {
-position: absolute;
-bottom: 1rem;
-width: 100%;
-text-align: center;
-font-size: 0.9rem;
-color: inherit; // Adapts to light or dark theme color
-opacity: 0.7; // Slightly transparent for subtle appearance
+  .product-stat + .product-stat {
+    border-left: none;
+  }
+  footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
 }

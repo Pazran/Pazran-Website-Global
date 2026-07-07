@@ -1,38 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Open Graph Protocol Meta Tags -->
-    <meta property="og:title" content="Pazran - Coming Soon" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.pazran.com" />
-    <!-- <meta property="og:image" content="https://www.pazran.com/path/to/image.png" /> -->
-    <meta property="og:description" content="An exciting new website is coming soon. Stay tuned!" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:site_name" content="Pazran" />
-
-    <!-- Optional Twitter Card Meta Tags for additional social support -->
-    <meta name="twitter:card" content="-" />
-    <meta name="twitter:title" content="Pazran - Coming Soon" />
-    <meta name="twitter:description" content="An exciting new website is coming soon. Stay tuned!" />
-    <!-- <meta name="twitter:image" content="https://www.pazran.com/path/to/image.png" /> -->
-
-    <!-- Main metadata -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coming Soon</title>
+    <title>Pazran</title>
+    <meta name="description" content="Solo developer. Automation, AI, data, infrastructure." />
+
+    <meta property="og:title" content="Pazran" />
+    <meta property="og:description" content="Building tools at the intersection of automation, AI, and data." />
+    <meta property="og:url" content="https://www.pazran.com" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <div class="container">
-      <div class="toggle-theme" onclick="toggleTheme()">
-        <span>🌙</span>
-      </div>
-      <img src="src/logo.png" alt="Logo" class="logo" />
-      <h1>Coming Soon</h1>
-      <p class="description">We’re working hard to bring you something amazing. Stay tuned for updates!</p>
+    <div id="app">
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-bg"></div>
+
+        <aside class="corner">
+          <a href="mailto:inquiry@pazran.com">inquiry@pazran.com</a>
+        </aside>
+
+        <div class="hero-inner">
+          <svg class="hero-logo" width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <rect x="1.5" y="1.5" width="45" height="45" rx="10" stroke="url(#lg)" stroke-width="1.5" fill="rgba(14,165,233,0.04)"/>
+            <text x="24" y="32" text-anchor="middle" fill="url(#lg)" font-family="Inter, sans-serif" font-weight="700" font-size="26">P</text>
+            <defs>
+              <linearGradient id="lg" x1="0" y1="0" x2="48" y2="48">
+                <stop stop-color="#0ea5e9"/>
+                <stop offset="1" stop-color="#14b8a6"/>
+              </linearGradient>
+            </defs>
+          </svg>
+
+          <h1>Pazran</h1>
+          <p class="hero-blurb">
+            I build things. Automation, AI, data pipelines, infrastructure —
+            if it involves getting machines to do useful work, I've probably built something for it.
+          </p>
+          <nav class="hero-links">
+            <a href="https://github.com/Pazran" target="_blank">GitHub ↗</a>
+            <span class="sep">·</span>
+            <a href="mailto:inquiry@pazran.com">Email</a>
+          </nav>
+        </div>
+      </section>
+
+      <!-- PRODUCT: SOVEREIGNSEARCH -->
+      <section class="product-section">
+        <div class="product-card">
+          <div class="product-badge">Product</div>
+          <h2 class="product-name">SovereignSearch</h2>
+          <p class="product-desc">
+            A locally-hosted, air-gapped semantic search engine for enterprise document corpora.
+            Parses, chunks, embeds, and indexes millions of documents — PDF, DOCX, PPTX, XLSX, HTML,
+            Markdown, CSV, TXT — entirely on hardware you control. Zero egress, zero cloud.
+          </p>
+          <div class="product-stats">
+            <div class="product-stat">
+              <span class="product-stat-val">&lt;50ms</span>
+              <span class="product-stat-lbl">query latency</span>
+            </div>
+            <div class="product-stat">
+              <span class="product-stat-val">8+</span>
+              <span class="product-stat-lbl">formats</span>
+            </div>
+            <div class="product-stat">
+              <span class="product-stat-val">0</span>
+              <span class="product-stat-lbl">egress</span>
+            </div>
+            <div class="product-stat">
+              <span class="product-stat-val">~5MB</span>
+              <span class="product-stat-lbl">client bundle</span>
+            </div>
+          </div>
+          <div class="product-tech">
+            <span>Python</span><span>FastAPI</span><span>Svelte</span>
+            <span>Rust</span><span>Qdrant</span><span>Docker</span>
+          </div>
+          <a href="/sovereignsearch/" class="product-cta">
+            Learn more →
+          </a>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="projects">
+        <div class="projects-inner">
+          <div class="section-marker">
+            <span class="marker-line"></span>
+            Other projects
+          </div>
+
+          <div class="project">
+            <div class="project-side">
+              <div class="project-icon">🔊</div>
+            </div>
+            <div class="project-body">
+              <a href="https://github.com/Pazran/live-audio-transcription" target="_blank" class="project-name">Live Audio Transcription →</a>
+              <p class="project-desc">
+                Real-time system audio transcription using local Whisper models. Captures system audio output
+                and transcribes it live.
+              </p>
+              <div class="project-tech">
+                <span>Python</span><span>Whisper</span><span>ASR</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="project-side">
+              <div class="project-icon">📚</div>
+            </div>
+            <div class="project-body">
+              <a href="https://github.com/Pazran/audiobook-kokoro-tts" target="_blank" class="project-name">Audiobook Kokoro TTS →</a>
+              <p class="project-desc">
+                Converts TXT, EPUB, or PDF into audiobooks using Kokoro TTS. Chapter-aware splitting
+                with natural speech synthesis.
+              </p>
+              <div class="project-tech">
+                <span>Python</span><span>TTS</span><span>EPUB</span><span>PDF</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="project-side">
+              <div class="project-icon">🏗️</div>
+            </div>
+            <div class="project-body">
+              <a href="https://github.com/Pazran/Navisworks-Federated-Model-Build-Automation" target="_blank" class="project-name">Navisworks Federated Model Build →</a>
+              <p class="project-desc">
+                PowerShell automation for federated BIM model generation. Automates multi-discipline
+                model federation in Autodesk Navisworks.
+              </p>
+              <div class="project-tech">
+                <span>PowerShell</span><span>Navisworks</span><span>BIM</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="project-side">
+              <div class="project-icon">🧠</div>
+            </div>
+            <div class="project-body">
+              <a href="https://github.com/Pazran/lm-studio-mcp-server" target="_blank" class="project-name">LM Studio MCP Server →</a>
+              <p class="project-desc">
+                MCP server providing web search, file operations, and system interaction for LM Studio
+                through the Model Context Protocol.
+              </p>
+              <div class="project-tech">
+                <span>Python</span><span>MCP</span><span>LM Studio</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="project-side">
+              <div class="project-icon">📊</div>
+            </div>
+            <div class="project-body">
+              <a href="https://github.com/Pazran/sales-data-analysis-and-prediction" target="_blank" class="project-name">Sales Data Analysis &amp; Prediction →</a>
+              <p class="project-desc">
+                Sales analysis and model prediction using Pandas. Data cleaning, feature engineering,
+                and forecasting with regression models.
+              </p>
+              <div class="project-tech">
+                <span>Python</span><span>Pandas</span><span>ML</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="project-side">
+              <div class="project-icon">🎮</div>
+            </div>
+            <div class="project-body">
+              <a href="https://github.com/Pazran/bg3-ai-wiki" target="_blank" class="project-name">BG3 AI Wiki →</a>
+              <p class="project-desc">
+                Local RAG-powered AI assistant for Baldur's Gate 3. Search mechanics, lore, and
+                items using natural language queries.
+              </p>
+              <div class="project-tech">
+                <span>Python</span><span>RAG</span><span>LLM</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="projects-footer">
+            <a href="https://github.com/Pazran?tab=repositories" target="_blank">See all on GitHub →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer>
+        <p>© 2026 Pazran</p>
+        <div class="footer-links">
+          <a href="https://github.com/Pazran" target="_blank">GitHub</a>
+          <a href="mailto:inquiry@pazran.com">Email</a>
+          <a href="/sovereignsearch/">SovereignSearch</a>
+        </div>
+      </footer>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>
-  <footer class="footer">
-    © 2024 Pazran | contact@pazran.my
-  </footer>
 </html>
