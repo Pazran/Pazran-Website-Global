@@ -399,10 +399,34 @@ footer {
    Responsive
    ============================================================ */
 @media (max-width: 600px) {
+  .hero {
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+  }
   .corner {
     position: static;
-    text-align: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .hero-inner {
+    max-width: 100%;
+  }
+  .hero h1 {
+    font-size: clamp(2.5rem, 12vw, 3.2rem);
+    letter-spacing: -1px;
+  }
+  .hero-blurb {
+    font-size: 0.92rem;
+  }
+  .hero-links a {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.85rem;
+  }
+  .product-card {
+    padding: 1.5rem 1.2rem;
+  }
+  .product-name {
+    font-size: 1.3rem;
   }
   .project {
     flex-direction: column;
