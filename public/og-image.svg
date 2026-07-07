@@ -1,12 +1,39 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="630" fill="#03050a"/>
-  <rect x="555" y="240" width="90" height="90" rx="20" stroke="url(#g)" stroke-width="4" fill="rgba(14,165,233,0.06)"/>
-  <text x="600" y="307" text-anchor="middle" fill="url(#g)" font-family="Inter, Helvetica, Arial, sans-serif" font-weight="800" font-size="54">P</text>
-  <text x="600" y="395" text-anchor="middle" fill="#4a5177" font-family="Inter, Helvetica, Arial, sans-serif" font-weight="500" font-size="22" letter-spacing="4">PAZRAN</text>
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1200" y2="630">
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630">
+      <stop stop-color="#03050a"/>
+      <stop offset="1" stop-color="#080b14"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1200" y2="630">
+      <stop stop-color="#0ea5e9" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#14b8a6" stop-opacity="0.04"/>
+    </linearGradient>
+    <linearGradient id="border" x1="0" y1="0" x2="120" y2="120">
       <stop stop-color="#0ea5e9"/>
       <stop offset="1" stop-color="#14b8a6"/>
     </linearGradient>
   </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Subtle glow -->
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Rounded square frame -->
+  <rect x="540" y="255" width="120" height="120" rx="24" stroke="url(#border)" stroke-width="4" fill="rgba(14,165,233,0.03)"/>
+
+  <!-- P letter built from paths (no font dependency) -->
+  <g transform="translate(600, 315)">
+    <!-- P stem -->
+    <rect x="-30" y="-45" width="14" height="90" rx="2" fill="url(#border)"/>
+    <!-- P bowl -->
+    <path d="M-16 -45 H8 C30 -45 40 -25 40 -5 C40 15 30 35 8 35 H-16 Z" fill="url(#border)"/>
+    <!-- P inner cutout -->
+    <path d="M-6 -25 H8 C18 -25 24 -15 24 -5 C24 5 18 15 8 15 H-6 Z" fill="#03050a"/>
+  </g>
+
+  <!-- Grid lines (subtle) -->
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
+  <line x1="600" y1="0" x2="600" y2="630" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
 </svg>
