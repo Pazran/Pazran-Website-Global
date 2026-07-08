@@ -87,6 +87,16 @@
       transition: border-color 0.3s;
     }
     nav.scrolled { border-bottom-color: rgba(14, 165, 233, 0.18); }
+    .nav-back {
+      display: flex; align-items: center; gap: 0.3rem;
+      color: var(--gray-500); text-decoration: none;
+      font-size: 0.82rem; font-weight: 500;
+      margin-right: 0.75rem; padding-right: 0.75rem;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+    .nav-back:hover { color: var(--cyan-300); }
     .nav-inner {
       max-width: 1280px; margin: 0 auto; padding: 0 2rem;
       height: 100%; display: flex; align-items: center; justify-content: space-between;
@@ -966,6 +976,7 @@
        ============================================================ -->
   <nav id="navbar">
     <div class="nav-inner">
+      <a href="https://www.pazran.com" class="nav-back" aria-label="Back to Pazran homepage">← Pazran</a>
       <a href="#" class="nav-brand">
         <div class="nav-logo">S</div>
         <span class="nav-name">Sovereign<span>Search</span></span>
